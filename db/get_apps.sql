@@ -1,0 +1,1 @@
+SELECT * FROM applications WHERE user_id = $1

@@ -41,6 +41,15 @@ class Navigation extends Component {
         </div>
         <div className="top-menu">
           <h1>{this.props.user.job}</h1>
+          <div className="nav2">
+          <ul>
+            <Link to="/applications">
+            <li>Applications</li>
+            </Link>
+            <li>Interviews</li>
+            <li>Connections</li>
+          </ul>
+          </div>
         </div>
       </div>
     );

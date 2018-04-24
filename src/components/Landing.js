@@ -5,14 +5,10 @@ import "../styles/Landing.css";
 
 class App extends Component {
   render() {
-    return( <div className="App">
+    return( <div className="Landing-wrapper">
     <a href={process.env.REACT_APP_LOGIN}>
         <h1 className="title">Login</h1>
         </a>
-
-        <input type="text" placeholder="Email" />
-        <input type="text" placeholder="Password" />
-        <p>Continue as guest</p>
       </div>)
   }
 }

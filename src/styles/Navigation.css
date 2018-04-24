@@ -15,6 +15,12 @@
   height: 23%;
   border-bottom: solid 2px black;
 }
+.nav2{
+  color: blue;
+}
+.nav2 a {
+  color: blue;
+}
 .top-menu{
     height: 30vh;
     background:white;

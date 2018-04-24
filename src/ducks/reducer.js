@@ -3,6 +3,8 @@ import axios from 'axios';
 //CONSTANTS
 const GET_USER = "GET_USER";
 const GET_PINNED = "GET_PINNED";
+const GET_APP = "GET_APP";
+
 
 
 //ACTION CREATORS
@@ -21,6 +23,12 @@ export function getPinned(e){
     payload: e
   };
 }
+export function getApplications(e){
+  return {
+    type: GET_APP,
+    payload: e
+  };
+}
 
 
 
@@ -32,7 +40,8 @@ const initialState = {
     isLoading: false,
     didErr: false,
     errMessage: null,
-    pinned: ""
+    pinned: "",
+    applications: ""
 };
 
 export default function reducer(state = initialState, action) {
@@ -51,6 +60,9 @@ export default function reducer(state = initialState, action) {
 
     case GET_PINNED:
       return Object.assign({}, state, { pinned: action.payload });
+
+    case GET_APP:
+      return Object.assign({}, state, { applications: action.payload });
     default:
       return state;
   }

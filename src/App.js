@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import routes from "./routes";
 import Landing from "./components/Landing";
+import Navigation from "./components/Navigation";
 
 class App extends Component {
   render() {

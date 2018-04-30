@@ -4,6 +4,8 @@ import { Switch, Route } from "react-router-dom";
 import Landing from "./components/Landing";
 import Dashboard from "./components/Dashboard";
 import Applications from "./components/Applications";
+import Interviews from "./components/Interviews";
+
 
 
 export default (
@@ -11,6 +13,8 @@ export default (
     <Route exact path="/" component={Landing} />
     <Route path="/dashboard/:id" component={Dashboard} />
     <Route path="/applications" component={Applications} />
+    <Route path="/interviews" component={Interviews} />
+
     <Route
       path="*"
       render={() => (

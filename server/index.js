@@ -11,6 +11,8 @@ const path = require("path");
 
 //CONTROLLERS
 const ac = require(`${__dirname}/controllers/appController`);
+const ic = require(`${__dirname}/controllers/intController`);
+
 
 
 const port = 3005;
@@ -108,6 +110,9 @@ app.get("/logout", (req, res) => {
 //ENDPOINTS
 app.get('/api/application/:id', ac.getApp);//get one application
 app.get('/api/applications/:id', ac.getApps);//get all applications
+app.get('/api/interviews/:id', ic.getInts);//get all Interviews
+// app.get('/api/companies/:id', cc.getCompanies )
+
 
 
 

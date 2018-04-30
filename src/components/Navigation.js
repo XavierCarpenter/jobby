@@ -46,7 +46,9 @@ class Navigation extends Component {
             <Link to="/applications">
             <li>Applications</li>
             </Link>
+            <Link to="/interviews">
             <li>Interviews</li>
+            </Link>
             <li>Connections</li>
           </ul>
           </div>

@@ -1,0 +1,1 @@
+SELECT * FROM interviews WHERE user_id = $1;

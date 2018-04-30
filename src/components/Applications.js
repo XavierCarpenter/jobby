@@ -23,20 +23,31 @@ class Applications extends Component {
   
     console.log(this.props.applications);
     let applications = this.props.applications && this.props.applications.map((obj, i) => {
-      return(
-        <div key={i}>
-            <h1>{obj.company}</h1>
-        </div>
-      )
+      return <div key={i}>
+          <tr>
+            <td contenteditable="true">{obj.company}</td>
+            <td contenteditable="true">{obj.position}</td>
+            <td contenteditable="true">{obj.location}</td>
+            <td contenteditable="true">{obj.date}</td>
+            <td contenteditable="true">{obj.interview}</td>
+          </tr>
+        </div>;
     })
    
-    return (
-      <div className="Applications-wrapper">
+    return <div className="Applications-wrapper">
         <Navigation />
         <h1>Application View</h1>
-      {applications}
-      </div>
-    );
+        <table>
+          <tr>
+            <th>Company</th>
+            <th>Position</th>
+            <th>Location</th>
+            <th>Date Applied</th>
+            <th>Interview</th>
+          </tr>
+          {applications}
+        </table>
+      </div>;
   }
 }
 const mapStateToProps = state => state;

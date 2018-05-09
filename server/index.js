@@ -12,6 +12,9 @@ const path = require("path");
 //CONTROLLERS
 const ac = require(`${__dirname}/controllers/appController`);
 const ic = require(`${__dirname}/controllers/intController`);
+const comc = require(`${__dirname}/controllers/compController`);
+const conc = require(`${__dirname}/controllers/connController`);
+
 
 
 
@@ -111,6 +114,8 @@ app.get("/logout", (req, res) => {
 app.get('/api/application/:id', ac.getApp);//get one application
 app.get('/api/applications/:id', ac.getApps);//get all applications
 app.get('/api/interviews/:id', ic.getInts);//get all Interviews
+app.get('/api/companies/:id',comc.getComps );//get all companies
+app.get('/api/connections/:id',conc.getConns );//get all connections
 // app.get('/api/companies/:id', cc.getCompanies )
 
 

@@ -1,0 +1,33 @@
+.Companies-wrapper {
+  height: 100vh;
+  background: rgb(76, 192, 186);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.content-box {
+  background: #fff;
+  width: 80vw;
+  height: 80vh;
+}
+.comp-title {
+  border-bottom: solid 3px rgb(76, 192, 186);
+  margin: 0 30%;
+}
+.comp-table th{
+    font-size: 20px;
+    font-weight: bold;
+    margin: 0 0 20px 0;
+    height: 50px
+}
+.comp-table td{
+    padding: 10px;
+}
+.comp-table tr:nth-child(even){
+    background: rgb(107, 202, 197, 0.8);
+    color: white;
+}
+.comp-table tr:nth-child(even) a {
+    color: white;
+  
+}

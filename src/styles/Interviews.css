@@ -1,0 +1,28 @@
+.Interviews-wrapper{
+    height: 100vh;
+    background: rgb(119, 102, 204);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.content-box{
+    background: #fff;
+    width: 80vw;
+    height: 80vh;
+}
+.int-title{
+    border-bottom: solid 3px rgb(119, 102, 204);
+    margin: 0 30%;
+}
+.int-table th{
+    font-size: 20px;
+    font-weight: bold;
+    margin: 0 0 20px 0;
+}
+.int-table td{
+    padding: 10px;
+}
+.int-table tr:nth-child(even){
+    background: rgb(141, 126, 220, 0.8);
+    color: white;
+}

@@ -5,6 +5,8 @@ const GET_USER = "GET_USER";
 const GET_PINNED = "GET_PINNED";
 const GET_APP = "GET_APP";
 const GET_INTS = "GET_INTS";
+const GET_COMPS = "GET_COMPS";
+const GET_CONNS = "GET_CONNS";
 
 
 
@@ -37,6 +39,18 @@ export function getInterviews(e){
     payload: e
   };
 }
+export function getCompanies(e){
+  return {
+    type: GET_COMPS,
+    payload: e
+  };
+}
+export function getConnections(e){
+  return {
+    type: GET_CONNS,
+    payload: e
+  };
+}
 
 
 
@@ -50,7 +64,9 @@ const initialState = {
     errMessage: null,
     pinned: "",
     applications: "",
-    interviews: ""
+    interviews: "",
+    companies: "",
+    connections: "",
 };
 
 export default function reducer(state = initialState, action) {
@@ -75,6 +91,11 @@ export default function reducer(state = initialState, action) {
 
     case GET_INTS:
       return Object.assign({}, state, { interviews: action.payload });
+
+    case GET_COMPS:
+      return Object.assign({}, state, { companies: action.payload });
+    case GET_CONNS:
+      return Object.assign({}, state, { connections: action.payload });
     default:
       return state;
   }

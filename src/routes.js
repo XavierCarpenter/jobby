@@ -5,6 +5,9 @@ import Landing from "./components/Landing";
 import Dashboard from "./components/Dashboard";
 import Applications from "./components/Applications";
 import Interviews from "./components/Interviews";
+import Companies from "./components/Companies";
+import Connections from "./components/Connections";
+
 
 
 
@@ -14,6 +17,8 @@ export default (
     <Route path="/dashboard/:id" component={Dashboard} />
     <Route path="/applications" component={Applications} />
     <Route path="/interviews" component={Interviews} />
+    <Route path="/companies" component={Companies} />
+    <Route path="/connections" component={Connections} />
 
     <Route
       path="*"

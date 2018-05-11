@@ -3,6 +3,7 @@ require("dotenv").config();
 const express = require("express");
 const session = require("express-session");
 const passport = require("passport");
+ const LocalStrategy = require("passport-local").Strategy;
 const Auth0Strategy = require("passport-auth0");
 const { json } = require("body-parser");
 const cors = require("cors");
@@ -47,15 +48,32 @@ app.use(
     secret: SESSION_SECRET,
     resave: false,
     saveUninitialized: false,
-    cookie: {
-      maxAge: 100000 //365 * 24 * 60 * 60 * 1000
-    }
+    // cookie: {
+    //   maxAge: 100000 //365 * 24 * 60 * 60 * 1000
+    // }
   })
 );
 
 app.use(passport.initialize());
 app.use(passport.session());
 
+// passport.use(
+//   new LocalStrategy(function(username, password, done) {
+//     User.findOne({ username: username }, function(err, user) {
+//       console.log('user', user)
+//       if (err) {
+//         return done(err);
+//       }
+//       if (!user) {
+//         return done(null, false, { message: "Incorrect username." });
+//       }
+//       if (!user.validPassword(password)) {
+//         return done(null, false, { message: "Incorrect password." });
+//       }
+//       return done(null, user);
+//     });
+//   })
+// );
 passport.use(
   new Auth0Strategy(
     {
@@ -87,6 +105,22 @@ passport.serializeUser((user, done) => done(null, user));
 passport.deserializeUser((user, done) => done(null, user));
 
 //authentication
+// app.get(
+//   "/login",
+//   passport.authenticate("local", {
+//     failureRedirect: "/login"
+  
+//   }),
+//   (req, res) => {
+//     console.log(req.user)
+//     succesRedirect: `localhost:3000/#/dashboard/${req.user.name}`
+//   }
+// );
+// app.get(
+//   "/login",
+//   passport.authenticate("local", {
+//     failureRedirect: "/#/login"
+//   }),
 app.get(
   "/login",
   passport.authenticate("auth0", {

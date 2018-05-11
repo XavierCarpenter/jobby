@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import { getUser, getCompanies } from "../ducks/reducer";
 import { Link, withRouter } from "react-router-dom";
 import Navigation from "./Navigation";
+import Buttons from "./Buttons";
 import "../styles/Companies.css";
 
 class Companies extends Component {
@@ -69,6 +70,7 @@ class Companies extends Component {
             </tr>
             {companies}
           </table>
+          <Buttons />
         </div>
       </div>;
   }

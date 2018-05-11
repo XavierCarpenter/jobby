@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import { getUser, getApplications } from "../ducks/reducer";
 import { Link, withRouter } from "react-router-dom";
 import Navigation from "./Navigation";
+import Buttons from "./Buttons";
 import "../styles/Applications.css";
 
 
@@ -76,6 +77,7 @@ class Applications extends Component {
             </tr>
             {applications}
           </table>
+    <Buttons solid={"#349c47"}  />
         </div>
       </div>;
   }

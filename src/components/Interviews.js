@@ -4,6 +4,7 @@ import {connect} from 'react-redux';
 import { getUser, getInterviews } from "../ducks/reducer";
 import { Link, withRouter } from "react-router-dom";
 import Navigation from "./Navigation";
+import Buttons from "./Buttons";
 import "../styles/Interviews.css";
 
 
@@ -71,6 +72,7 @@ class Interviews extends Component {
             </tr>
             {interviews}
           </table>
+          <Buttons />
         </div>
       </div>;
   }

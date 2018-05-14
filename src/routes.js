@@ -14,7 +14,7 @@ import Connections from "./components/Connections";
 export default (
   <Switch>
     <Route exact path="/" component={Landing} />
-    <Route path="/dashboard/:id" component={Dashboard} />
+    <Route path="/dashboard" component={Dashboard} />
     <Route path="/applications" component={Applications} />
     <Route path="/interviews" component={Interviews} />
     <Route path="/companies" component={Companies} />

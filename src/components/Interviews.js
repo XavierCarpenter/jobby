@@ -11,14 +11,31 @@ import "../styles/Interviews.css";
 class Interviews extends Component {
   constructor() {
     super();
-
+    this.state = {
+      newInt: false,
+      type: "",
+      date: "",
+      status: "",
+      notes: ""
+    };
   }
-  componentDidMount() {
-    this.props.getUser().then(() => {
-      axios.get(`/api/interviews/${this.props.user.id}`).then(response => {
-        this.props.getInterviews(response.data);
-      });
-    });
+
+  newIntActive() {
+    this.setState({ newInt: true });
+  }
+  newIntInActive() {
+    this.setState({ newInt: false });
+  }
+  saveInfo() {
+    let obj = {
+      type: this.state.type,
+      status: this.state.status,
+      location: this.state.location,
+      date: this.state.date
+    };
+    this.props.interviews.push(obj);
+    this.newIntInActive();
+    alert("Interview Added");
   }
   render() {
     console.log(this.props.interviews);
@@ -26,14 +43,12 @@ class Interviews extends Component {
       this.props.interviews &&
       this.props.interviews.map((obj, i) => {
         return (
-          
-            <tr  key={i}>
-              <td contenteditable="true">{obj.type}</td>
-              <td contenteditable="true">{obj.date}</td>
-              <td contenteditable="true">{obj.status}</td>
-              <td contenteditable="true">{obj.Notes}</td>
-            </tr>
-    
+          <tr key={i}>
+            <td contenteditable="true">{obj.type}</td>
+            <td contenteditable="true">{obj.date}</td>
+            <td contenteditable="true">{obj.status}</td>
+            <td contenteditable="true">{obj.Notes}</td>
+          </tr>
         );
       });
 
@@ -72,8 +87,45 @@ class Interviews extends Component {
             </tr>
             {interviews}
           </table>
-          <Buttons />
+          <div className="buttons">
+            <button className="btn btn1" onClick={() => this.newIntActive()}>
+              Add
+            </button>
+            <button className="btn btn2">Edit</button>
+          </div>;
         </div>
+        {this.state.newInt === true ? <div className="newInfo-container">
+            <form className="newInfo">
+              <h1 className="form-title">New Application</h1>
+              <div>
+                <label>Type</label>
+                <input type="text" name="username" onChange={e => this.setState(
+                      { type: e.target.value }
+                    )} />
+              </div>
+              <div>
+                <label>Date</label>
+                <input type="text" name="password" onChange={e => this.setState(
+                      { date: e.target.value }
+                    )} />
+              </div>
+              <div>
+                <label>Status</label>
+                <input type="text" name="password" onChange={e => this.setState(
+                      { status: e.target.value }
+                    )} />
+              </div>
+              <div>
+                <label>Notes</label>
+                <input type="text" name="password" onChange={e => this.setState(
+                      { notes: e.target.value }
+                    )} />
+              </div>
+
+              <button onClick={() => this.saveInfo()}>Save</button>
+              <button onClick={() => this.newIntInActive()}>Cancel</button>
+            </form>
+          </div> : null}
       </div>;
   }
 }

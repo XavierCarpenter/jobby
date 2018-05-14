@@ -10,28 +10,54 @@ import "../styles/Companies.css";
 class Companies extends Component {
   constructor() {
     super();
+    this.state = {
+      newComp: false,
+      name: "",
+      location: "",
+      website: "",
+      linkedin: ""
+    };
   }
-    componentDidMount() {
-      this.props.getUser().then(() => {
-        axios.get(`/api/companies/${this.props.user.id}`).then(response => {
-          this.props.getCompanies(response.data);
-        });
-      });
-    }
+  componentDidMount() {
+    // this.props.getUser().then(() => {
+    //   axios.get(`/api/companies/${this.props.user.id}`).then(response => {
+    //     this.props.getCompanies(response.data);
+    //   });
+    // });
+  }
+  newCompActive() {
+    this.setState({ newComp: true });
+  }
+  newCompInActive() {
+    this.setState({ newComp: false });
+  }
+  saveInfo() {
+    let obj = {
+      name: this.state.name,
+      website: this.state.website,
+      city: this.state.location,
+      linkedin: this.state.linkedin
+    };
+    this.props.companies.push(obj);
+    this.newCompInActive();
+    alert("Company Added");
+  }
   render() {
     console.log(this.props.companies);
     let companies =
       this.props.companies &&
       this.props.companies.map((obj, i) => {
         return (
-      
-            <tr key={i}>
-              <td contenteditable="true">{obj.name}</td>
-              <td contenteditable="true">{obj.city},{obj.state}</td>
-              <td contenteditable="false"><a href={obj.website}>{obj.website}</a></td>
-              <td contenteditable="false"><a href={obj.linkedin}>{obj.linkedin}</a></td>
-            </tr>
-   
+          <tr key={i}>
+            <td contenteditable="true">{obj.name}</td>
+            <td contenteditable="true">{obj.city}</td>
+            <td contenteditable="false">
+              <a href={obj.website}>{obj.website}</a>
+            </td>
+            <td contenteditable="false">
+              <a href={obj.linkedin}>{obj.linkedin}</a>
+            </td>
+          </tr>
         );
       });
 
@@ -70,8 +96,44 @@ class Companies extends Component {
             </tr>
             {companies}
           </table>
-          <Buttons />
+          <div className="buttons">
+            <button className="btn btn1" onClick={() => this.newCompActive()}>
+              Add
+            </button>
+            <button className="btn btn2">Edit</button>
+          </div>;
         </div>
+        {this.state.newComp === true ? <div className="newInfo-container">
+            <form className="newInfo">
+              <h1 className="form-title">New Company</h1>
+              <div>
+                <label>Name</label>
+                <input type="text" name="username" onChange={e => this.setState(
+                      { name: e.target.value }
+                    )} />
+              </div>
+              <div>
+                <label>Location</label>
+                <input type="text" name="password" onChange={e => this.setState(
+                      { location: e.target.value }
+                    )} />
+              </div>
+              <div>
+                <label>Website</label>
+                <input type="text" name="password" onChange={e => this.setState(
+                      { website: e.target.value }
+                    )} />
+              </div>
+              <div>
+                <label>Linkedin URL</label>
+                <input type="text" name="password" onChange={e => this.setState(
+                      { linkedin: e.target.value }
+                    )} />
+              </div>
+              <button onClick={() => this.saveInfo()}>Save</button>
+              <button onClick={() => this.newCompInActive()}>Cancel</button>
+            </form>
+          </div> : null}
       </div>;
   }
 }

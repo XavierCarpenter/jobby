@@ -85,3 +85,57 @@ table{
     background: rgb(121, 206, 137, 0.8);
     color: white;
 }
+.buttons{
+    position: relative;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+.btn{
+    width: 100px;
+    height: 60px;
+    font-size: 16px;
+    text-transform: uppercase;
+    margin: 0 10px 0 10px;
+    border-radius: 5px 5px 5px 5px;
+-moz-border-radius: 5px 5px 5px 5px;
+-webkit-border-radius: 5px 5px 5px 5px;
+/* border: 0px solid #000000; */
+}
+.btn1{
+    background: rgb(52, 156, 71);
+    color: white;
+}
+/* .btn1:hover{
+    background: gold;  
+} */
+.btn2{
+    background: white;
+        color: #349c47;
+border: 3px solid #349c47;
+}
+.btn2:hover{
+    background: #349c47;
+    color:white;
+border: 3px solid white;
+    
+}
+.newInfo{
+    background: white;
+    border: solid 5px rgb(52, 156, 71);
+    position: absolute;
+    height: 70vh;
+    width: 30vw;
+}
+.newInfo-container{
+    position: absolute;
+    background: rgb(0, 0, 0, .7);
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.form-title{
+    color: black;
+}

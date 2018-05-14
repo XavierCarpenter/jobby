@@ -58,15 +58,69 @@ export function getConnections(e){
 //INITIAL STATE
 
 const initialState = {
-    user: {},
-    isLoading: false,
-    didErr: false,
-    errMessage: null,
-    pinned: "",
-    applications: "",
-    interviews: "",
-    companies: "",
-    connections: "",
+  user: {},
+  isLoading: false,
+  didErr: false,
+  errMessage: null,
+  pinned: "",
+  applications: [
+    {
+      company: "Apple",
+      position: "Front-End Developer",
+      location: "Dallas, Texas",
+      date: "3/24/2018",
+      interview: "yes"
+    },
+    {
+      company: "Google",
+      position: "Back-End Developer",
+      location: "Austin, Texas",
+      date: "5/1/2018",
+      interview: "yes"
+    }
+  ],
+  interviews: [
+    {
+      type: "In Person",
+      status: "Completed",
+      location: "Dallas, Texas",
+      date: "3/30/2018"
+    },
+    {
+      type: "Phone",
+      status: "Coming up",
+      location: "Austin, Texas",
+      date: "5/13/2018"
+    }
+  ],
+  companies: [
+    {
+      name: "Apple",
+      website: "https://apple.com",
+      city: "Dallas, Texas",
+      linkedin: "https://www.linkedin.com/company/162479/"
+    },
+    {
+      name: "Google",
+      website: "https://google.com",
+      city: "Austin, Texas",
+      linkedin: "https://www.linkedin.com/company/1441/"
+    }
+  ],
+  connections: [
+    {
+      name: "Connor F",
+      job_title: "Web Developer",
+      email: "connor@apple,caom",
+      linkedin: "https://www.linkedin.com/in/connor-freeman/"
+    },
+    {
+      name: "Grace McKoy",
+      job_title: "Technical Recruiter",
+      email: "grace@google.com",
+      linkedin: "https://www.linkedin.com/in/gracefarmer/"
+    }
+  ]
 };
 
 export default function reducer(state = initialState, action) {

@@ -9,11 +9,16 @@ class App extends Component {
         {/* <a href={process.env.REACT_APP_LOGIN}>
           <h1 className="title">Login</h1>
         </a> */}
+        <h1>Jobby</h1>
+        <div className="login-wrapper">
         <h1>Select a User</h1>
+        <div className= "users">
         <Link to="./dashboard">
         <h3>Xavier</h3>
         </Link>
         <h3>Guest</h3>
+        </div>
+        </div>
         {/* <form action="/login" method="get">
           <div>
             <label>Username:</label>

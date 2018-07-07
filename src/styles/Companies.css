@@ -1,17 +1,18 @@
 .Companies-wrapper {
   height: 100vh;
-  background: rgb(76, 192, 186);
+    background: linear-gradient(to left, #0f0f11 0%, #3c4241 118%);
+
   display: flex;
   justify-content: center;
   align-items: center;
 }
 .content-box {
-  background: #fff;
+   background: #3C4241;
   width: 80vw;
   height: 80vh;
 }
 .comp-title {
-  border-bottom: solid 3px rgb(76, 192, 186);
+  border-bottom: solid 3px rgb(0, 182, 184);
   margin: 0 30%;
 }
 .comp-table th{
@@ -24,7 +25,7 @@
     padding: 10px;
 }
 .comp-table tr:nth-child(even){
-    background: rgb(107, 202, 197, 0.8);
+    background: #01A09E;
     color: white;
 }
 .comp-table tr:nth-child(even) a {
